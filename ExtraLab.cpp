@@ -405,11 +405,28 @@ void checker(int Department1Array[], int Department2Array[], int SameProgrammer,
 
 int main()
     {
-        int D1[5] = {1,5,3,2,4};//Need to rememmber to add file read after test
+        /*int D1[5] = {1,5,3,2,4};//Need to rememmber to add file read after test
         int D2[5] = {1,3,4,2,5};
         int D3[5] = {3,4,2,5,1};
         int D4[5] = {3,1,2,4,5};
         int D5[5] = {4,3,1,2,5};
+
+        int P1[5] = {3,1,2,5,4};
+        int P2[5] = {4,3,1,5,2};
+        int P3[5] = {2,5,4,1,3};
+        int P4[5] = {4,5,2,1,3};
+        int P5[5] = {3,2,1,5,4};*/
+        int D1[5];
+        int D2[5];
+        int D3[5];
+        int D4[5];
+        int D5[5];
+
+        int P1[5];
+        int P2[5];
+        int P3[5];
+        int P4[5];
+        int P5[5];
     
         int d1 = 1;
         int d2 = 2;
@@ -423,18 +440,45 @@ int main()
         string D4Value = "na";
         string D5Value = "na";
     
-        int P1[5] = {3,1,2,5,4};
-        int P2[5] = {4,3,1,5,2};
-        int P3[5] = {2,5,4,1,3};
-        int P4[5] = {4,5,2,1,3};
-        int P5[5] = {3,2,1,5,4};
-    
         bool P1Value = false;
         bool P2Value = false;
         bool P3Value = false;
         bool P4Value = false;
         bool P5Value = false;
+
+        string file_name;
+        cout << "What is the file name?";
+        cin >> file_name;
+        //file_name = "matching-data.txt";
+        ifstream inFile(file_name);
+        if(inFile.is_open())
+            {
+                for(int i = 0; i < 1; i++) 
+                    {
+                        for (int x = 0; x < 5; x++)
+                        {
+                            inFile >> D1[x] >> D2[x] >> D3[x] >> D4[x] >> D5[x];
+                        }
+                           
+                    }   
+                
+                for(int i = 0; i < 1; i++) 
+                    {
+                        for (int x = 0; x < 5; x++)
+                        {
+                            inFile >> P1[x] >> P2[x] >> P3[x] >> P4[x] >> P5[x];
+                        }
+                           
+                    }   
+            }
         
+        else 
+            {
+                cout<<"file cannot be opened"<<std::endl;
+            }
+    
+        inFile.close();
+
         int value = 0;
         
         StepOne(D1, D2, D3, D4, D5, D1Value, D2Value, D3Value, D4Value, D5Value, P1Value, P2Value, P3Value, P4Value, P5Value);

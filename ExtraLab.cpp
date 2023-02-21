@@ -19,7 +19,9 @@ ________________________________________________________________________________
 
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
+
 
 void StepOne(int D1[], int D2[], int D3[], int D4[], int D5[], string &D1Value, string &D2Value, string &D3Value, string &D4Value, string &D5Value, bool &P1Value, bool &P2Value, bool &P3Value, bool &P4Value, bool &P5Value)
     {
@@ -179,106 +181,106 @@ void StepOne(int D1[], int D2[], int D3[], int D4[], int D5[], string &D1Value, 
 
 void checker(int Department1Array[], int Department2Array[], int SameProgrammer, int d_num1, int d_num2, string &Department1Value, string &Department2Value, int ProgrammerArray1[], int ProgrammerArray2[], int ProgrammerArray3[], int ProgrammerArray4[], int ProgrammerArray5[], bool &ProgrammerValue1, bool &ProgrammerValue2, bool &ProgrammerValue3 ,bool &ProgrammerValue4 ,bool &ProgrammerValue5)
     {
-            bool programmerfound = false;
-            int counter = 0;
+        bool programmerfound = false;
+        int counter = 0;
             
-            while (programmerfound == false)
-                {
-                    if(SameProgrammer == 1 && ProgrammerValue1 == false)
-                        { // If they both equal P1 and P1 has not been assigned a value
+        while (programmerfound == false)
+            {
+                if(SameProgrammer == 1 && ProgrammerValue1 == false)
+                    { // If they both equal P1 and P1 has not been assigned a value
                             
-                            for (int i = 0; i < 5; i++)
-                                {
-                                    if (ProgrammerArray1[i] == d_num1)
-                                        { // If P1 = D1
-                                            Department1Value = "P1";
-                                            ProgrammerValue1 = true;
-                                            programmerfound = true;
-                                            break;
-                                        }
+                        for (int i = 0; i < 5; i++)
+                            {
+                                if (ProgrammerArray1[i] == d_num1)
+                                    { // If P1 = D1
+                                        Department1Value = "P1";
+                                        ProgrammerValue1 = true;
+                                        programmerfound = true;
+                                        break;
+                                    }
                                 
-                                    if (ProgrammerArray1[i] == d_num2)
-                                        { // If P1 = D2
-                                            Department2Value = "P1";
-                                            ProgrammerValue1 = true;
-                                            programmerfound = true;
-                                            break;
-                                        }
-                                }
-                        }
+                                if (ProgrammerArray1[i] == d_num2)
+                                    { // If P1 = D2
+                                        Department2Value = "P1";
+                                        ProgrammerValue1 = true;
+                                        programmerfound = true;
+                                        break;
+                                    }
+                            }
+                    }
     
-                    if(SameProgrammer == 2 && ProgrammerValue2 == false)
-                        { // If they both equal P2 and P2 has not been assigned a value
+                if(SameProgrammer == 2 && ProgrammerValue2 == false)
+                    { // If they both equal P2 and P2 has not been assigned a value
     
-                            for (int i = 0; i < 5; i++)
-                                {
-                                    if (ProgrammerArray2[i] == d_num1)
-                                        { // If P2 = D1
-                                            Department1Value = "P2";
-                                            ProgrammerValue2 = true;
-                                            programmerfound = true;
-                                            break;
-                                        }
+                        for (int i = 0; i < 5; i++)
+                            {
+                                if (ProgrammerArray2[i] == d_num1)
+                                    { // If P2 = D1
+                                        Department1Value = "P2";
+                                        ProgrammerValue2 = true;
+                                        programmerfound = true;
+                                        break;
+                                    }
     
-                                    if (ProgrammerArray2[i] == d_num2)
-                                        { // If P2 = D2
-                                            Department2Value = "P2";
-                                            ProgrammerValue2 = true;
-                                            programmerfound = true;
-                                            break;
-                                        }
-                                }
-                        }
+                                if (ProgrammerArray2[i] == d_num2)
+                                    { // If P2 = D2
+                                        Department2Value = "P2";
+                                        ProgrammerValue2 = true;
+                                        programmerfound = true;
+                                        break;
+                                    }
+                            }
+                    }
     
-                    if(SameProgrammer == 3 && ProgrammerValue3 == false)
-                        { // If they both equal P3 and P3 has not been assigned a value
+                if(SameProgrammer == 3 && ProgrammerValue3 == false)
+                    { // If they both equal P3 and P3 has not been assigned a value
+
+                        for (int i = 0; i < 5; i++)
+                            {
+                                if (ProgrammerArray3[i] == d_num1)
+                                    { // If P3 = D1
+                                        Department1Value = "P3";
+                                        ProgrammerValue3 = true;
+                                        programmerfound = true;
+                                        break;
+                                    }
     
-                            for (int i = 0; i < 5; i++)
-                                {
-                                    if (ProgrammerArray3[i] == d_num1)
-                                        { // If P3 = D1
-                                            Department1Value = "P3";
-                                            ProgrammerValue3 = true;
-                                            programmerfound = true;
-                                            break;
-                                        }
+                                if (ProgrammerArray3[i] == d_num2)
+                                    { // If P3 = D2
+                                        Department2Value = "P3";
+                                        ProgrammerValue3 = true;
+                                        programmerfound = true;
+                                        break;
+                                    }
+                            }
+                    }
     
-                                    if (ProgrammerArray3[i] == d_num2)
-                                        { // If P3 = D2
-                                            Department2Value = "P3";
-                                            ProgrammerValue3 = true;
-                                            programmerfound = true;
-                                            break;
-                                        }
-                                }
-                        }
-    
-                    if(SameProgrammer == 4 && ProgrammerValue4 == false)
-                        {
+                if(SameProgrammer == 4 && ProgrammerValue4 == false)
+                    {
                         // If they both equal P4 and P4 has not been assigned a value
     
-                            for (int i = 0; i < 5; i++)
-                                {
-                                    if (ProgrammerArray4[i] == d_num1)
-                                        { // If P4 = D1
-                                            Department1Value = "P4";
-                                            ProgrammerValue4 = true;
-                                            programmerfound = true;
-                                            break;
-                                        }
+                        for (int i = 0; i < 5; i++)
+                            {
+                                if (ProgrammerArray4[i] == d_num1)
+                                    { // If P4 = D1
+                                        Department1Value = "P4";
+                                        ProgrammerValue4 = true;
+                                        programmerfound = true;
+                                        break;
+                                    }
     
-                                    if (ProgrammerArray4[i] == d_num2)
-                                        { // If P4 = D2
-                                            Department2Value = "P4";
-                                            ProgrammerValue4 = true;
-                                            programmerfound = true;
-                                            break;
-                                        }
-                                }
-                        }
+                                if (ProgrammerArray4[i] == d_num2)
+                                    { // If P4 = D2
+                                        Department2Value = "P4";
+                                        ProgrammerValue4 = true;
+                                        programmerfound = true;
+                                        break;
+                                    }
+                            }
+                    }
     
-                    if(SameProgrammer == 5 && ProgrammerValue5 == false)
-                        { // If they both equal P5 and P5 has not been assigned a value
+                if(SameProgrammer == 5 && ProgrammerValue5 == false)
+                    { // If they both equal P5 and P5 has not been assigned a value
     
                         for(int i = 0; i < 5; i++)
                             {
@@ -298,7 +300,8 @@ void checker(int Department1Array[], int Department2Array[], int SameProgrammer,
                                         break;
                                     }
                             }
-    
+                    }
+
                     if (counter == 4)
                         {
                             bool array1 = false;
@@ -312,98 +315,97 @@ void checker(int Department1Array[], int Department2Array[], int SameProgrammer,
                                 SameProgrammer = Department1Array[counter];
                 
                         }
-                }
+
+            }
+        
+        if (Department1Value == "na")
+            {
+                for (int i = 0; i < 5; i++)
+                    {
+                        if(ProgrammerValue1 == false and ProgrammerArray1[i] == d_num1)
+                        {
+                            Department1Value = "P1";
+                            ProgrammerValue1 = true;
+                            break;
+                        }
+                            
+                        if(ProgrammerValue2 == false and ProgrammerArray2[i] == d_num1)
+                        {
+                            Department1Value = "P2";
+                            ProgrammerValue2 = true;
+                            break; 
+                        }
+                            
+                        if(ProgrammerValue3 == false and ProgrammerArray3[i] == d_num1)
+                        {
+                            Department1Value = "P3";
+                            ProgrammerValue3 = true;
+                            break;
+                        }
                 
-                if (Department1Value == "na")
+                        if(ProgrammerValue4 == false and ProgrammerArray4[i] == d_num1)
+                        {
+                            Department1Value = "P4";
+                            ProgrammerValue4 = true;
+                            break;
+                        }
+                            
+                        if(ProgrammerValue5 == false and ProgrammerArray5[i] == d_num1)
+                        {
+                            Department1Value = "P5";
+                            ProgrammerValue5 = true;
+                            break;
+                        }
+                            
+                    }
+            }
+        else
                 {
                     for (int i = 0; i < 5; i++)
+                    {
+                        if(ProgrammerValue1 == false and ProgrammerArray1[i] == d_num2)
                         {
-                            if(ProgrammerValue1 == false && ProgrammerArray1[i] == d_num1)
-                                { // If P1 = D1
-                                    Department1Value = "P1";
-                                    ProgrammerValue1 = true;
-                                    break;
-                                }
-    
-                            if(ProgrammerValue2 == false && ProgrammerArray2[i] == d_num1)
-                                { // If P2 = D1
-                                    Department1Value = "P2";
-                                    ProgrammerValue2 = true;
-                                    break;
-                                }
-    
-                            if(ProgrammerValue3 == false && ProgrammerArray3[i] == d_num1)
-                                { // If P3 = D1
-                                    Department1Value = "P3";
-                                    ProgrammerValue3 = true;
-                                    break;
-                                }
-                                
-                            if(ProgrammerValue4 == false && ProgrammerArray4[i] == d_num1)
-                                { // If P4 = D1
-                                    Department1Value = "P4";
-                                    ProgrammerValue4 = true;
-                                    break;
-                                }
-    
-                            if(ProgrammerValue5 == false && ProgrammerArray5[i] == d_num1)
-                                { // If P5 = D1
-                                    Department1Value = "P5";
-                                    ProgrammerValue5 = true;
-                                    break;
-                                }
+                            Department2Value = "P1";
+                            ProgrammerValue1 = true;
+                            break;
                         }
-                }
-    
-            else
-                {
-                    for (int i = 0; i < 5; i++)
+                            
+                        if(ProgrammerValue2 == false and ProgrammerArray2[i] == d_num2)
                         {
-                            if(ProgrammerValue1 == false && ProgrammerArray1[i] == d_num2)
-                                { // If P1 = D1
-                                    Department2Value = "P1";
-                                    ProgrammerValue1 = true;
-                                    break;
-                                }
-    
-                            if(ProgrammerValue2 == false && ProgrammerArray2[i] == d_num2)
-                                { // If P2 = D1
-                                    Department2Value = "P2";
-                                    ProgrammerValue2 = true;
-                                    break;
-                                }
-    
-                            if(ProgrammerValue3 == false && ProgrammerArray3[i] == d_num2)
-                                { // If P3 = D1
-                                    Department2Value = "P3";
-                                    ProgrammerValue3 = true;
-                                    break;
-                                }
-    
-                            if(ProgrammerValue4 == false && ProgrammerArray4[i] == d_num2)
-                                { // If P4 = D1
-                                    Department2Value = "P4";
-                                    ProgrammerValue4 = true;
-                                    break;
-                                }
-    
-                            if(ProgrammerValue5 == false && ProgrammerArray5[i] == d_num2)
-                                { // If P5 = D1
-                                    Department2Value = "P5";
-                                    ProgrammerValue5 = true;
-                                    break;
-                                }
+                            Department2Value = "P2";
+                            ProgrammerValue2 = true;
+                            break; 
                         }
+                            
+                        if(ProgrammerValue3 == false and ProgrammerArray3[i] == d_num2)
+                        {
+                            Department2Value = "P3";
+                            ProgrammerValue3 = true;
+                            break;
+                        }
+                
+                        if(ProgrammerValue4 == false and ProgrammerArray4[i] == d_num2)
+                        {
+                            Department2Value = "P4";
+                            ProgrammerValue4 = true;
+                            break;
+                        }
+                            
+                        if(ProgrammerValue5 == false and ProgrammerArray5[i] == d_num2)
+                        {
+                            Department2Value = "P5";
+                            ProgrammerValue5 = true;
+                            break;
+                        }
+                    }
                 }
-        }
-    }
+
+    }           
     
-
-
 
 int main()
     {
-        int D1[5] = {1,5,3,2,4};
+        int D1[5] = {1,5,3,2,4};//Need to rememmber to add file read after test
         int D2[5] = {1,3,4,2,5};
         int D3[5] = {3,4,2,5,1};
         int D4[5] = {3,1,2,4,5};
@@ -437,7 +439,7 @@ int main()
         
         StepOne(D1, D2, D3, D4, D5, D1Value, D2Value, D3Value, D4Value, D5Value, P1Value, P2Value, P3Value, P4Value, P5Value);
         
-        if(D1[0]==D2[0] or D1[0]==D3[0] or D1[0]==D4[0] or D1[0]==D5[0])
+        if(D1[0]==D2[0] || D1[0]==D3[0] || D1[0]==D4[0] || D1[0]==D5[0])
             {
                 if(D1[0]==D2[0])
                     {
@@ -468,7 +470,64 @@ int main()
                     }
             }
     
-        cout << D1Value << D2Value << D3Value << D4Value << D5Value;
+        if(D2[0]==D3[0] || D2[0]==D4[0] || D2[0]==D5[0])
+            {
+                if(D2[0]==D3[0])
+
+                    {
+                        value = D2[0];
+                        // Run a function that does this then use an if statement to solve the other one tht checks each index of each programmer
+                        checker(D2, D3, value, d2, d3, D2Value, D3Value, P1, P2, P3, P4, P5, P1Value, P2Value, P3Value, P4Value, P5Value);
+                    }
+                
+                if(D2[0]==D4[0])
+
+                    {
+                        value = D2[0];
+                        // Run a function that does this then use an if statement to solve the other one tht checks each index of each programmer
+                        checker(D2, D4, value, d2, d4, D2Value, D4Value, P1, P2, P3, P4, P5, P1Value, P2Value, P3Value, P4Value, P5Value);
+                    }
+                
+                if(D2[0]==D5[0])
+
+                    {
+                        value = D2[0];
+                        // Run a function that does this then use an if statement to solve the other one tht checks each index of each programmer
+                        checker(D2, D5, value, d2, d5, D2Value, D5Value, P1, P2, P3, P4, P5, P1Value, P2Value, P3Value, P4Value, P5Value);
+                    } 
+            }
+        if(D3[0]==D4[0] || D3[0]==D5[0])
+            {
+                if(D3[0]==D4[0])
+
+                    {
+                    value = D3[0];
+                    // Run a function that does this then use an if statement to solve the other one tht checks each index of each programmer
+                    checker(D3, D4, value, d3, d4, D3Value, D4Value, P1, P2, P3, P4, P5, P1Value, P2Value, P3Value, P4Value, P5Value);
+                    }
+                    
+                if(D3[0]==D5[0])
+
+                    {
+                    value = D3[0];
+                    // Run a function that does this then use an if statement to solve the other one tht checks each index of each programmer
+                    checker(D3, D5, value, d3, d5, D3Value, D5Value, P1, P2, P3, P4, P5, P1Value, P2Value, P3Value, P4Value, P5Value);
+                    }
+                                
+            }
+
+        if(D4[0]==D5[0])
+            {
+                if(D4[0]==D5[0])
+
+                    {
+                    value = D4[0];
+                    // Run a function that does this then use an if statement to solve the other one tht checks each index of each programmer
+                    checker(D4, D5, value, d4, d5, D4Value, D5Value, P1, P2, P3, P4, P5, P1Value, P2Value, P3Value, P4Value, P5Value);
+                    }
+            }
+
+        cout << "Department 1 gets: " << D1Value << "\nDepartment 2 gets: "<< D2Value << "\nDepartment 3 gets: "<< D3Value << "\nDepartment 4 gets: "<< D4Value << "\nDepartment 5 gets: "<< D5Value;
         
         return 0;
     }
